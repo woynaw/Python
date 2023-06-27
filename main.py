@@ -21,7 +21,9 @@ good_data = good_data.query('60 <= time_spent <= 1000')
 #print(len(good_data))
 #too_slow_stat.hist(bins=60)
 #plt.show()
-good_data["time_spent"].mean()
-good_stations_stat = good_data["time_spent"]
-good_stations_stat.hist(bins=50)
-plt.show()
+
+good_stations_stat = good_data.pivot_table(index='id', values='time_spent', aggfunc='median')
+#good_stations_stat.hist(bins=50)
+#plt.show()
+good_stat = good_data.pivot_table(index='name', values='time_spent', aggfunc='median')
+print(good_stat.sort_values(by='time_spent'))
