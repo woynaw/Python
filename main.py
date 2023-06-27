@@ -26,4 +26,9 @@ good_stations_stat = good_data.pivot_table(index='id', values='time_spent', aggf
 #good_stations_stat.hist(bins=50)
 #plt.show()
 good_stat = good_data.pivot_table(index='name', values='time_spent', aggfunc='median')
-print(good_stat.sort_values(by='time_spent'))
+stat = data.pivot_table(index='name', values='time_spent')
+
+
+
+stat.insert(1,"good_time_spent",  good_stat['time_spent'])
+print(stat)
