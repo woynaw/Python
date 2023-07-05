@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('f:/Download/visits.csv', sep='\t')
+data = pd.read_csv('visits.csv', sep='\t')
 data['date_time'] = pd.to_datetime(data['date_time'], format = '%Y%m%dT%H%M%S')
 data.insert(4,"local_time", data['date_time'] + pd.Timedelta(hours=3))
 data['local_time'] = pd.to_datetime(data['local_time'], format = '%Y%m%dT%H%M%S')
@@ -30,3 +30,7 @@ stat = data.pivot_table(index='name', values='time_spent')
 stat.insert(1,"good_time_spent",  good_stat['time_spent'])
 id_name= good_data.pivot_table(index="id", values="name", aggfunc=['first','count'])
 print(id_name.head(5))
+
+
+
+dsadsad
