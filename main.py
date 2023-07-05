@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('f:/Download/visits.csv', sep='\t')
+data = pd.read_csv('visits.csv', sep='\t')
 data['date_time'] = pd.to_datetime(data['date_time'], format = '%Y%m%dT%H%M%S')
 data.insert(4,"local_time", data['date_time'] + pd.Timedelta(hours=3))
 data['local_time'] = pd.to_datetime(data['local_time'], format = '%Y%m%dT%H%M%S')
